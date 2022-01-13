@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.javaexample.ui.main.adapter.RecyclerViewAdapter;
@@ -19,7 +20,7 @@ import com.example.javaexample.presentation.person.PersonViewModelFactory;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity
-        implements RecyclerViewAdapter.PersonClickListener {
+        implements RecyclerViewAdapter.PersonClickListener, View.OnClickListener {
 
     ActivityMainBinding binding;
     PersonViewModel viewModel;
@@ -31,6 +32,8 @@ public class MainActivity extends AppCompatActivity
         binding = ActivityMainBinding.inflate(LayoutInflater.from(this));
         setContentView(binding.getRoot());
 
+        binding.btnTest.setOnClickListener(this);
+
         // Instanciando ViewModel:
         viewModel = new ViewModelProvider(
                 this,
@@ -41,7 +44,17 @@ public class MainActivity extends AppCompatActivity
                 )
         ).get(PersonViewModel.class);
 
-        getPersonListObserver();
+    }
+
+    @Override
+    public void onClick(View view) {
+        /*
+            Interfaz para el manejo de clicks en componentes XML.
+        */
+        if (binding.btnTest.equals(view)) {
+            getPersonListObserver();
+            return;
+        }
 
     }
 
