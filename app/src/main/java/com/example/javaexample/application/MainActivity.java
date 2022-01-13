@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import com.example.javaexample.data.model.Person;
 import com.example.javaexample.domain.person.PersonUseCaseImpl;
 import com.example.javaexample.presentation.person.PersonViewModel;
 import com.example.javaexample.presentation.person.PersonViewModelFactory;
+import com.example.javaexample.ui.retrofit.RetrofitDataActivity;
 
 import java.util.List;
 
@@ -32,7 +34,8 @@ public class MainActivity extends AppCompatActivity
         binding = ActivityMainBinding.inflate(LayoutInflater.from(this));
         setContentView(binding.getRoot());
 
-        binding.btnTest.setOnClickListener(this);
+        binding.btnGeneratePersonList.setOnClickListener(this);
+        binding.btnGoToRetrofitActivity.setOnClickListener(this);
 
         // Instanciando ViewModel:
         viewModel = new ViewModelProvider(
@@ -51,12 +54,18 @@ public class MainActivity extends AppCompatActivity
         /*
             Interfaz para el manejo de clicks en componentes XML.
         */
-        if (binding.btnTest.equals(view)) {
+        if (binding.btnGeneratePersonList.equals(view)) {
             getPersonListObserver();
             return;
         }
 
+        if (binding.btnGoToRetrofitActivity.equals(view)) {
+            goToRetrofitActivity();
+        }
+
     }
+
+
 
     private void getPersonListObserver() {
         /*
@@ -74,6 +83,11 @@ public class MainActivity extends AppCompatActivity
     private void recyclerViewSetup(List<Person> personList) {
         adapter = new RecyclerViewAdapter(personList, this);
         binding.rvNumbers.setAdapter(adapter);
+    }
+
+    private void goToRetrofitActivity() {
+        Intent intent = new Intent(this, RetrofitDataActivity.class);
+        startActivity(intent);
     }
 
     @Override
