@@ -1,4 +1,4 @@
-package com.example.javaexample.model;
+package com.example.javaexample.data.model;
 
 public class Person {
     /*

@@ -1,4 +1,4 @@
-package com.example.javaexample.adapter;
+package com.example.javaexample.ui.main.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.javaexample.core.BaseViewHolder;
 import com.example.javaexample.databinding.RecyclerviewItemRowBinding;
-import com.example.javaexample.model.Person;
+import com.example.javaexample.data.model.Person;
 
 import java.util.List;
 
