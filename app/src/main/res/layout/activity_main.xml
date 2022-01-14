@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".application.MainActivity"
+    tools:context=".ui.main.MainActivity"
     android:padding="10dp">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -14,7 +14,7 @@
         android:layout_height="0dp"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@+id/btn_test"
+        app:layout_constraintBottom_toTopOf="@+id/btn_generate_person_list"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

@@ -9,12 +9,20 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.javaexample.core.BaseViewHolder;
+import com.example.javaexample.data.model.Post;
 import com.example.javaexample.databinding.RecyclerviewItemRowBinding;
 import com.example.javaexample.data.model.Person;
 
 import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<BaseViewHolder> {
+    /*
+        Esto es equivalente en Kotlin a:
+        class RecyclerViewAdapter(
+                private val personClick: PersonClickListener,
+                private val personList: List<Person>
+            ): RecyclerView.Adapter<BaseViewHolder<*>>()
+    */
 
     public interface PersonClickListener {
         /*
@@ -28,12 +36,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     public RecyclerViewAdapter(List<Person> personList, PersonClickListener listener) {
         /*
-            Constructor del RecyclerViewAdapter.
-            Esto es equivalente en Kotlin a:
-            class RecyclerViewAdapter(
-                private val personClick: PersonClickListener,
-                private val personList: List<Person>
-            )
+            Constructor.
         */
         personClick = listener;
         this.personList = personList;
@@ -94,18 +97,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
         @Override
         public void bind(Person item) {
+
             binding.txtName.setText("Name: " + item.getName());
-            //binding.txtAge.setText(Integer.toString(item.getAge()));
             binding.txtAge.setText("Age: " + item.getAge());
 
-            binding.mainCardView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    /*
-                        Obtención del item clickado.
-                    */
-                    personClick.onPersonClickListener(item);
-                }
+            binding.mainCardView.setOnClickListener(view -> {
+                /*
+                    Obtención del item clickado.
+                */
+                personClick.onPersonClickListener(item);
             });
 
         }

@@ -1,4 +1,4 @@
-package com.example.javaexample.application;
+package com.example.javaexample.ui.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
@@ -11,13 +11,13 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.javaexample.ui.main.adapter.RecyclerViewAdapter;
-import com.example.javaexample.data.person.PersonDataSourceImpl;
+import com.example.javaexample.data.local.person.PersonDataSourceImpl;
 import com.example.javaexample.databinding.ActivityMainBinding;
 import com.example.javaexample.data.model.Person;
 import com.example.javaexample.domain.person.PersonUseCaseImpl;
 import com.example.javaexample.presentation.person.PersonViewModel;
 import com.example.javaexample.presentation.person.PersonViewModelFactory;
-import com.example.javaexample.ui.retrofit.RetrofitDataActivity;
+import com.example.javaexample.ui.post.PostActivity;
 
 import java.util.List;
 
@@ -65,19 +65,13 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-
-
     private void getPersonListObserver() {
         /*
-            Método encargado de atachar un Observer al método venido del ViewModel.
+            Método encargado de obtener la lista de personas del ViewModel y atacharle un Observer.
         */
-        viewModel.getPersonList().observe(this, new Observer<List<Person>>() {
-            @Override
-            public void onChanged(List<Person> personList) {
-                recyclerViewSetup(personList);
-            }
-        });
-
+        viewModel.getPersonList().observe(this, personList ->
+                recyclerViewSetup(personList)
+        );
     }
 
     private void recyclerViewSetup(List<Person> personList) {
@@ -86,7 +80,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void goToRetrofitActivity() {
-        Intent intent = new Intent(this, RetrofitDataActivity.class);
+        Intent intent = new Intent(this, PostActivity.class);
         startActivity(intent);
     }
 

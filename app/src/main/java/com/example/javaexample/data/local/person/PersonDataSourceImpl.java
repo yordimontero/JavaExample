@@ -1,4 +1,4 @@
-package com.example.javaexample.data.person;
+package com.example.javaexample.data.local.person;
 
 import com.example.javaexample.data.model.Person;
 
@@ -7,7 +7,6 @@ import java.util.List;
 
 public class PersonDataSourceImpl implements PersonDataSource {
     /*
-        PersonDataSource.
         Esto es equivalente en Kotlin a:
         class PersonDataSourceImpl: PersonDataSource
     */

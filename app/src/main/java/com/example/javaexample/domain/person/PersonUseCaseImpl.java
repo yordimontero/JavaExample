@@ -1,13 +1,12 @@
 package com.example.javaexample.domain.person;
 
 import com.example.javaexample.data.model.Person;
-import com.example.javaexample.data.person.PersonDataSource;
+import com.example.javaexample.data.local.person.PersonDataSource;
 
 import java.util.List;
 
 public class PersonUseCaseImpl implements PersonUseCase {
     /*
-        PersonUseCase.
         Esto es equivalente en Kotlin a:
         class PersonUseCaseImpl(
             private val dataSource: PersonDataSource

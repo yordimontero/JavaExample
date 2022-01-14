@@ -13,10 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RecyclerViewExample">
         <activity
-            android:name=".ui.retrofit.RetrofitDataActivity"
+            android:name=".ui.post.PostActivity"
             android:exported="false" />
         <activity
-            android:name=".application.MainActivity"
+            android:name=".ui.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,4 +1,4 @@
-package com.example.javaexample.data.post;
+package com.example.javaexample.data.remote.post;
 
 import com.example.javaexample.data.model.Post;
 

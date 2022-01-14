@@ -11,7 +11,9 @@ public class RetrofitClient {
     public static WebService webService;
 
     public static WebService initWebService() {
-
+        /*
+            Método encargado de inicializar la instancia de Retrofit.
+        */
         if (webService == null) {
 
             webService = new Retrofit.Builder()
@@ -23,7 +25,9 @@ public class RetrofitClient {
                     ).build().create(WebService.class);
 
         }
+
         return webService;
+
     }
 
 }
