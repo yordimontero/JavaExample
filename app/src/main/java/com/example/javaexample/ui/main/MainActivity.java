@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.javaexample.ui.contact.ContactActivity;
 import com.example.javaexample.ui.main.adapter.RecyclerViewAdapter;
 import com.example.javaexample.data.local.person.PersonDataSourceImpl;
 import com.example.javaexample.databinding.ActivityMainBinding;
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity
 
         binding.btnGeneratePersonList.setOnClickListener(this);
         binding.btnGoToRetrofitActivity.setOnClickListener(this);
+        binding.btnGoToVolleyActivity.setOnClickListener(this);
 
         // Instanciando ViewModel:
         viewModel = new ViewModelProvider(
@@ -63,6 +65,10 @@ public class MainActivity extends AppCompatActivity
             goToRetrofitActivity();
         }
 
+        if (binding.btnGoToVolleyActivity.equals(view)) {
+            goToVolleyActivity();
+        }
+
     }
 
     private void getPersonListObserver() {
@@ -81,6 +87,11 @@ public class MainActivity extends AppCompatActivity
 
     private void goToRetrofitActivity() {
         Intent intent = new Intent(this, PostActivity.class);
+        startActivity(intent);
+    }
+
+    private void goToVolleyActivity() {
+        Intent intent = new Intent(this, ContactActivity.class);
         startActivity(intent);
     }
 

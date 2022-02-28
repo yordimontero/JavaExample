@@ -17,7 +17,7 @@ public class RetrofitClient {
         if (webService == null) {
 
             webService = new Retrofit.Builder()
-                    .baseUrl(AppConstants.BASE_URL)
+                    .baseUrl(AppConstants.BASE_POST_URL)
                     .addConverterFactory(
                             GsonConverterFactory.create(
                                     new GsonBuilder().create()
