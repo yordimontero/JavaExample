@@ -17,11 +17,13 @@ public class ContactViewModel extends ViewModel implements VolleySuccessListener
 
     ContactUseCase useCase;
     MutableLiveData<List<Contact>> mutableContactList;
+    MutableLiveData<String> errorMessage;
     VolleySuccessListener listener;
 
     public ContactViewModel(ContactUseCase useCase) {
         this.useCase = useCase;
         mutableContactList = new MutableLiveData<>();
+        errorMessage = new MutableLiveData<>();
         setInterface();
         setUseCaseInterface();
     }
@@ -44,7 +46,7 @@ public class ContactViewModel extends ViewModel implements VolleySuccessListener
     }
 
     @Override
-    public <T> void onVolleyResult(Boolean isSuccess, List<T> data) {
+    public <T> void onVolleyResult(List<T> data) {
 
         mutableContactList.setValue(
                 (List<Contact>) data

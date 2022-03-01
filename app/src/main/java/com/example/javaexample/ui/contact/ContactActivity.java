@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.widget.Toast;
 
+import com.example.javaexample.core.VolleySuccessListener;
 import com.example.javaexample.data.model.Contact;
 import com.example.javaexample.data.remote.contact.ContactDataSourceImpl;
 import com.example.javaexample.databinding.ActivityContactBinding;
@@ -52,11 +53,15 @@ public class ContactActivity extends AppCompatActivity {
                     @Override
                     public void onChanged(List<Contact> contacts) {
 
+                        if (contacts == null) {
+                            Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
                         if (contacts.size() != 0) {
 
                             for (int i = 0; i < contacts.size(); i++) {
-                                Log.wtf("TAG", contacts.get(i).getName() + "\n");
-                                Toast.makeText(getApplicationContext(), contacts.get(i).getName(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "Name: " + contacts.get(i).getName(), Toast.LENGTH_SHORT).show();
                             }
 
                         }
@@ -65,4 +70,5 @@ public class ContactActivity extends AppCompatActivity {
                 }
         );
     }
+
 }

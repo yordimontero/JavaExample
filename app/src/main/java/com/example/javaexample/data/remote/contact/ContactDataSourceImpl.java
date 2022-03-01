@@ -1,6 +1,7 @@
 package com.example.javaexample.data.remote.contact;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -17,6 +18,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class ContactDataSourceImpl implements ContactDataSource {
@@ -49,14 +51,29 @@ public class ContactDataSourceImpl implements ContactDataSource {
                     JSONArray array = response.getJSONArray("contacts");
 
                     for (int i = 0; i < array.length(); i++) {
+
                         JSONObject contactObject = array.getJSONObject(i);
                         String name = contactObject.getString("name");
+
+                        JSONObject phoneObject = array.getJSONObject(i).getJSONObject("phone");
+                        String mobile = phoneObject.getString("mobile");
+                        String home = phoneObject.getString("home");
+                        String office = phoneObject.getString("office");
+
+                        Log.wtf("TAG", "Name: "+name+", mobile: "+mobile+", home: "+home+", office: "+office);
+
                         contactList.add(
-                                new Contact(name)
+                                new Contact(
+                                        name,
+                                        mobile,
+                                        home,
+                                        office
+                                )
                         );
+
                     }
 
-                    listener.onVolleyResult(true, contactList);
+                    listener.onVolleyResult(contactList);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -66,7 +83,7 @@ public class ContactDataSourceImpl implements ContactDataSource {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                listener.onVolleyResult(false, null);
+                listener.onVolleyResult(null);
             }
         });
 
