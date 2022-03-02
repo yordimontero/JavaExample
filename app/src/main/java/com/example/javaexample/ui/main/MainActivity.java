@@ -19,6 +19,7 @@ import com.example.javaexample.domain.person.PersonUseCaseImpl;
 import com.example.javaexample.presentation.person.PersonViewModel;
 import com.example.javaexample.presentation.person.PersonViewModelFactory;
 import com.example.javaexample.ui.post.PostActivity;
+import com.example.javaexample.ui.product.ProductActivity;
 
 import java.util.List;
 
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity
         binding.btnGeneratePersonList.setOnClickListener(this);
         binding.btnGoToRetrofitActivity.setOnClickListener(this);
         binding.btnGoToVolleyActivity.setOnClickListener(this);
+        binding.btnGoToSqlActivity.setOnClickListener(this);
 
         // Instanciando ViewModel:
         viewModel = new ViewModelProvider(
@@ -69,6 +71,10 @@ public class MainActivity extends AppCompatActivity
             goToVolleyActivity();
         }
 
+        if (binding.btnGoToSqlActivity.equals(view)) {
+            goToSQLActivity();
+        }
+
     }
 
     private void getPersonListObserver() {
@@ -92,6 +98,11 @@ public class MainActivity extends AppCompatActivity
 
     private void goToVolleyActivity() {
         Intent intent = new Intent(this, ContactActivity.class);
+        startActivity(intent);
+    }
+
+    private void goToSQLActivity() {
+        Intent intent = new Intent(this, ProductActivity.class);
         startActivity(intent);
     }
 

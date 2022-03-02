@@ -14,40 +14,48 @@
         android:layout_height="0dp"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@+id/btn_generate_person_list"
+        app:layout_constraintBottom_toTopOf="@+id/linear_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/recyclerview_item_row" />
 
-    <Button
-        android:id="@+id/btn_generate_person_list"
+    <LinearLayout
+        android:id="@+id/linear_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Generate person list"
-        android:textAllCaps="false"
-        app:layout_constraintBottom_toTopOf="@+id/btn_go_to_retrofit_activity"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/btn_go_to_retrofit_activity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Go to Retrofit Activity!"
-        android:textAllCaps="false"
-        app:layout_constraintBottom_toTopOf="@+id/btn_go_to_volley_activity"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/btn_go_to_volley_activity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Go to Volley Activity!"
-        android:textAllCaps="false"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        tools:layout_editor_absoluteX="10dp">
+
+        <Button
+            android:id="@+id/btn_generate_person_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Generate person list"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_go_to_retrofit_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Go to Retrofit Activity!"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_go_to_volley_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Go to Volley Activity!"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_go_to_sql_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Go to SQL Activity!"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

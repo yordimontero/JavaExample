@@ -12,8 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RecyclerViewExample">
         <activity
+            android:name=".ui.product.ProductActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.contact.ContactActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".ui.login.LoginActivity"
             android:exported="true"
