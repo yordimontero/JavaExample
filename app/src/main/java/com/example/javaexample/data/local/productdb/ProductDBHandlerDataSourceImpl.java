@@ -1,4 +1,4 @@
-package com.example.javaexample.data.local.db;
+package com.example.javaexample.data.local.productdb;
 
 import static com.example.javaexample.application.AppConstants.COLUMN_ID;
 import static com.example.javaexample.application.AppConstants.COLUMN_PRODUCT_NAME;
@@ -17,9 +17,9 @@ import androidx.annotation.Nullable;
 
 import com.example.javaexample.data.model.Product;
 
-public class DBHandlerImpl extends SQLiteOpenHelper implements DBHandler {
+public class ProductDBHandlerDataSourceImpl extends SQLiteOpenHelper implements ProductDBHandlerDataSource {
 
-    public DBHandlerImpl(
+    public ProductDBHandlerDataSourceImpl(
             @Nullable Context context,
             @Nullable String name,
             @Nullable SQLiteDatabase.CursorFactory factory,

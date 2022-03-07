@@ -2,7 +2,7 @@ package com.example.javaexample.data.model;
 
 public class Product {
 
-    public int id;
+    /*public int id;
     public String productName;
 
     public Product() {
@@ -19,6 +19,23 @@ public class Product {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }*/
+
+    public String productName;
+
+    public Product() {
+    }
+
+    public Product(String productName) {
+        this.productName = productName;
     }
 
     public String getProductName() {
