@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.book.AddBookActivity"
+    android:padding="18dp"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/txt_book_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="Book title"
+            android:layout_marginBottom="12dp"/>
+
+        <EditText
+            android:id="@+id/txt_book_author"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="Book author"
+            android:layout_marginBottom="12dp"/>
+
+        <EditText
+            android:id="@+id/txt_book_pages"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="Number of pages"
+            android:layout_marginBottom="12dp"/>
+
+        <Button
+            android:id="@+id/btn_add_book"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Add Book"
+            android:textAllCaps="false"
+            app:cornerRadius="8dp"
+            app:strokeColor="@color/purple_200"
+            app:strokeWidth="2dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

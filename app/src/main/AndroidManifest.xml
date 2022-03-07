@@ -11,6 +11,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RecyclerViewExample">
+        <!-- android:parentActivityName="@Activity" adds a back arrow. -->
+        <activity
+            android:name=".ui.book.AddBookActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.book.BookLibraryActivity"
+            android:label="New Book"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.book.BookLibraryActivity"
+            android:exported="false"
+            android:label="Book Library" />
         <activity
             android:name=".ui.product.ProductActivity"
             android:exported="false" />

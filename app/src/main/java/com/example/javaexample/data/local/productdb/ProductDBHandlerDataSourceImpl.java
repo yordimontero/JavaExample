@@ -1,9 +1,9 @@
 package com.example.javaexample.data.local.productdb;
 
-import static com.example.javaexample.application.AppConstants.COLUMN_ID;
+import static com.example.javaexample.application.AppConstants.COLUMN_PRODUCT_ID;
 import static com.example.javaexample.application.AppConstants.COLUMN_PRODUCT_NAME;
-import static com.example.javaexample.application.AppConstants.DB_NAME;
-import static com.example.javaexample.application.AppConstants.DB_VERSION;
+import static com.example.javaexample.application.AppConstants.DB_PRODUCT_NAME;
+import static com.example.javaexample.application.AppConstants.DB_PRODUCT_VERSION;
 import static com.example.javaexample.application.AppConstants.PRODUCTS_TABLE;
 
 import android.annotation.SuppressLint;
@@ -25,13 +25,13 @@ public class ProductDBHandlerDataSourceImpl extends SQLiteOpenHelper implements 
             @Nullable SQLiteDatabase.CursorFactory factory,
             int version
     ) {
-        super(context, DB_NAME, factory, DB_VERSION);
+        super(context, DB_PRODUCT_NAME, factory, DB_PRODUCT_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String queryCreateProductTable = "CREATE TABLE " + PRODUCTS_TABLE + " ( " + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_PRODUCT_NAME + " TEXT);";
+        String queryCreateProductTable = "CREATE TABLE " + PRODUCTS_TABLE + " ( " + COLUMN_PRODUCT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_PRODUCT_NAME + " TEXT);";
         db.execSQL(queryCreateProductTable);
 
     }

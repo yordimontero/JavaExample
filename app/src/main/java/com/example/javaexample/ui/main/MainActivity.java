@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.javaexample.ui.book.BookLibraryActivity;
 import com.example.javaexample.ui.contact.ContactActivity;
 import com.example.javaexample.ui.main.adapter.RecyclerViewAdapter;
 import com.example.javaexample.data.local.person.PersonDataSourceImpl;
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity
         binding.btnGoToRetrofitActivity.setOnClickListener(this);
         binding.btnGoToVolleyActivity.setOnClickListener(this);
         binding.btnGoToSqlActivity.setOnClickListener(this);
+        binding.btnGoToBookLibraryActivity.setOnClickListener(this);
 
         // Instanciando ViewModel:
         viewModel = new ViewModelProvider(
@@ -75,6 +77,10 @@ public class MainActivity extends AppCompatActivity
             goToSQLActivity();
         }
 
+        if (binding.btnGoToBookLibraryActivity.equals(view)) {
+            goToBookLibraryActivity();
+        }
+
     }
 
     private void getPersonListObserver() {
@@ -103,6 +109,11 @@ public class MainActivity extends AppCompatActivity
 
     private void goToSQLActivity() {
         Intent intent = new Intent(this, ProductActivity.class);
+        startActivity(intent);
+    }
+
+    private void goToBookLibraryActivity() {
+        Intent intent = new Intent(this, BookLibraryActivity.class);
         startActivity(intent);
     }
 
